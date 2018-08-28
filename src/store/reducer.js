@@ -1,3 +1,5 @@
+import * as actionTypes from './actions';
+
 const initialState = {
   counter: 0,
   results: [],
@@ -6,31 +8,31 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case 'INCREMENT':
+    case actionTypes.INCREMENT:
       const newState = Object.assign({}, state); // One way of updating state immutably.
       newState.counter = state.counter + 1;
       return newState;
-    case 'DECREMENT':
+    case actionTypes.DECREMENT:
       return {
         ...state,  // Second way of updating state immutably.
         counter: state.counter - 1,
       };
-    case 'ADD':
+    case actionTypes.ADD:
       return {
         ...state,
         counter: state.counter + action.val,
       };
-    case 'SUBTRACT':
+    case actionTypes.SUBTRACT:
       return {
         ...state,
         counter: state.counter - action.val,
       };
-    case 'STORE_RESULT':
+    case actionTypes.STORE_RESULT:
       return {
         ...state,
         results: state.results.concat({id: +new Date(), value: state.counter}), // Here we are using concat as in the push method it updates values mutably.
       };
-    case 'DELETE_RESULT':
+    case actionTypes.DELETE_RESULT:
       // const id = 2; This is a one way of deleting elements from an array immutably.
       // const newArray = [...state.results];
       // newArray.splice(id, 1);
