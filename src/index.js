@@ -26,6 +26,8 @@ const logger = store => {
   }
 };
 
+// https://github.com/zalmoxisus/redux-devtools-extension
+// Follow above documentation to setup the chrome debug tools and add below line code
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
