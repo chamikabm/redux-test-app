@@ -5,9 +5,15 @@ const initialState = {
   results: [],
 };
 
+// Some developers find this is very cleaner as the reducer switch case is more cleaner.
+const deleteResult = (state, action) => {
+  const updatedArray = state.results.filter(result => result.id !== action.resultElementId); // This filter method will return an new array immutably.
+  return updateObject(state, { results: updatedArray });
+}
+;
 const reducer = (state = initialState, action) => {
 
-  console.log('[REDUCER] Received', action);
+  console.log('[REDUCER - RESULT] Received', action);
 
   switch (action.type) {
     case actionTypes.STORE_RESULT:
@@ -26,8 +32,7 @@ const reducer = (state = initialState, action) => {
       //   results: newArray,
       // };
 
-      const updatedArray = state.results.filter(result => result.id !== action.resultElementId); // This filter method will return an new array immutably.
-      return updateObject(state, { results: updatedArray });
+      return deleteResult(state, action);
 
     default:
       return state;

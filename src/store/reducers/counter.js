@@ -7,7 +7,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
-  console.log('[REDUCER] Received', action);
+  console.log('[REDUCER - COUNTER] Received', action);
 
   switch (action.type) {
     case actionTypes.INCREMENT:
