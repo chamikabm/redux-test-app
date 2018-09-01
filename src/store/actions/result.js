@@ -14,8 +14,10 @@ const saveResult = (res) => {
 // Async Action Creator
 const storeResult = (res) => {
 
+  // return (dispatch, getState) => {  // We are getting this dispatch and getState here because of the thunk middleware.
   return dispatch => {  // We are getting this dispatch here because of the thunk middleware.
     setTimeout(() => {
+      // console.log('oldCounter : ', getState().ctr.counter); // In thunk we can access to redux store with getState
       dispatch(saveResult(res));
     },2000);
   };
