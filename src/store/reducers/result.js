@@ -6,6 +6,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
+  console.log('[REDUCER] Received', action);
+
   switch (action.type) {
     case actionTypes.STORE_RESULT:
       return {

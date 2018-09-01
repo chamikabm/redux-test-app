@@ -33,11 +33,20 @@ const subtract = (value) => {
   }
 };
 
-const storeResult = (res) => {
+const saveResult = (res) => {
   return {
     type: STORE_RESULT,
     result: res,
   }
+};
+
+const storeResult = (res) => {
+
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(saveResult(res));
+    },2000);
+  };
 };
 
 const deleteResult = (resElId) => {
